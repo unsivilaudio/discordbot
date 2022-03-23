@@ -18,6 +18,7 @@ class Bot {
                     'DIRECT_MESSAGE_REACTIONS',
                     'DIRECT_MESSAGE_TYPING',
                     'GUILDS',
+                    'GUILD_MEMBERS',
                     'GUILD_MESSAGES',
                     'GUILD_MESSAGE_REACTIONS',
                     'GUILD_MESSAGE_TYPING',
