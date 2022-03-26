@@ -1,6 +1,6 @@
-import Discord, { Client } from 'discord.js';
+import Discord, { Client, ClientOptions } from 'discord.js';
 
-class Bot {
+class DiscordBot {
     name: string;
     client?: Client;
     private apiKey: string;
@@ -10,20 +10,9 @@ class Bot {
         this.apiKey = apiKey;
     }
 
-    async init() {
+    async init(config: ClientOptions) {
         try {
-            this.client = new Discord.Client({
-                intents: [
-                    'DIRECT_MESSAGES',
-                    'DIRECT_MESSAGE_REACTIONS',
-                    'DIRECT_MESSAGE_TYPING',
-                    'GUILDS',
-                    'GUILD_MEMBERS',
-                    'GUILD_MESSAGES',
-                    'GUILD_MESSAGE_REACTIONS',
-                    'GUILD_MESSAGE_TYPING',
-                ],
-            });
+            this.client = new Discord.Client(config);
             this.listen(this.client);
             await this.client.login(this.apiKey);
         } catch (err: any) {
@@ -39,4 +28,4 @@ class Bot {
     }
 }
 
-export default Bot;
+export default DiscordBot;
